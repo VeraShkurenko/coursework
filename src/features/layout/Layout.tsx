@@ -1,5 +1,8 @@
 import SiteButton from "../buttons/SiteButton";
 import { ButtonTypes } from "../buttons/types/ButtonTypes";
+import Label from "../label/Label";
+import { LabelTypes } from '../label/types/LabelTypes';
+
 
 export default function Layout() {
   return (
@@ -71,7 +74,9 @@ export default function Layout() {
  <SiteButton buttonType={ButtonTypes.Black} text="Click me" />
  <SiteButton buttonType={ButtonTypes.White} text="Click me" />
 
-  
+<Label labelType={LabelTypes.Black} text="hit" />
+<Label labelType={LabelTypes.Purple} text="new" />
+
     </>
   );
 }
