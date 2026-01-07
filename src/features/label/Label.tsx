@@ -13,6 +13,8 @@ export default function Label({
       ? 'label-black'
       : labelType === LabelTypes.Purple
       ? 'label-purple'
+      : labelType === LabelTypes.Red
+      ? 'label-red'
       : '';
 
   return (

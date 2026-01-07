@@ -1,0 +1,36 @@
+/* Центрування та шрифти */
+h2 {
+    letter-spacing: 1px;
+}
+
+/* Ефект при наведенні на картку */
+.product-card {
+    cursor: pointer;
+}
+
+.product-card:hover .hover-zoom {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    transition: transform 0.4s ease;
+}
+
+/* Колір стрілок та посилань */
+.btn-link {
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.btn-link:hover {
+    opacity: 0.7;
+}
+
+/* Обрізка тексту, якщо назва занадто довга */
+.fw-semibold {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 2.4em;
+}
