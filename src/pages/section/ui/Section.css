@@ -1,0 +1,41 @@
+/* Контейнер для слайдера */
+.product-slider-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.product-slider-container {
+  display: flex;
+  flex-wrap: nowrap; /* Важливо: забороняємо перенос */
+  overflow-x: auto;  /* Дозволяємо прокрутку */
+  scroll-behavior: smooth; /* Плавна прокрутка при кліку */
+  gap: 20px;
+  padding: 10px 0;
+  scrollbar-width: none; /* Для Firefox приховуємо скроллбар */
+}
+
+/* Приховуємо скроллбар для Chrome/Safari */
+.product-slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Налаштування ширини кожної картки у слайдері */
+.product-slider-item {
+  flex: 0 0 calc(25% - 15px); /* Рівно 4 товари на ряд */
+  min-width: 280px; /* Мінімальна ширина, щоб не стискались */
+}
+
+/* Адаптація для планшетів (3 товари) */
+@media (max-width: 1200px) {
+  .product-slider-item {
+    flex: 0 0 calc(33.333% - 15px);
+  }
+}
+
+/* Адаптація для мобільних (2 товари) */
+@media (max-width: 768px) {
+  .product-slider-item {
+    flex: 0 0 calc(50% - 10px);
+    min-width: 200px;
+  }
+}

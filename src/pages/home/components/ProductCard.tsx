@@ -5,8 +5,11 @@ import SiteButton from '../../../features/buttons/SiteButton';
 import { ButtonTypes } from '../../../features/buttons/types/ButtonTypes';
 import './ui/productCard.css';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../../../features/app_context/AppContext';
+import { useContext } from 'react';
 
 export default function ProductCard({ product }: { product: ProductType }) {
+  const { addToCart } = useContext(AppContext);
   const labelMap = {
     DEAL: LabelTypes.Black,
     HIT: LabelTypes.Black,
@@ -14,9 +17,6 @@ export default function ProductCard({ product }: { product: ProductType }) {
     SALE: LabelTypes.Red,
   };
 
-  function addToCart(product: ProductType): void {
-    throw new Error('Function not implemented.');
-  }
 
   return (
     <div className="col h-100 mb-4">
@@ -62,13 +62,14 @@ export default function ProductCard({ product }: { product: ProductType }) {
             <span className="fw-bold fs-5 text-danger">{product.price}</span>
           </div>
 
-          <div className="buy-button-wrapper">
-<SiteButton 
-  buttonType={ButtonTypes.Black} 
-  text="Додати у кошик"
-  action={() => addToCart(product)} 
-/>
-          </div>
+       <div className="buy-button-wrapper mt-auto">
+        <SiteButton 
+          buttonType={ButtonTypes.Black} 
+          text="ДОДАТИ У КОШИК"
+          // При натисканні викликаємо функцію з контексту
+          action={() => addToCart(product)} 
+        />
+      </div>
         </div>
       </div>
     </div>

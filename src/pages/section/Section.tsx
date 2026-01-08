@@ -2,6 +2,8 @@ import { Link, useParams } from 'react-router-dom';
 import { SectionDao } from '../../entities/section/api/SectionDao';
 import ProductCard from '../home/components/ProductCard';
 import type { SectionType } from '../../entities/section/model/SectionType';
+import { useRef } from 'react';
+import './ui/section.css';
 
 interface SectionProps {
   section?: SectionType;
@@ -9,9 +11,8 @@ interface SectionProps {
 
 export default function Section({ section: propsSection }: SectionProps) {
   const { slug } = useParams<{ slug: string }>();
+  const scrollRef = useRef<HTMLDivElement>(null); // Реф для контейнера зі списком
   
-  // ВИПРАВЛЕННЯ: Використовуємо наш розумний метод пошуку
-  // Якщо пропси пусті, питаємо DAO про секцію по ID (slug)
   const currentSection = propsSection || (slug ? SectionDao.getSectionById(slug) : undefined);
 
   if (!currentSection) {
@@ -22,6 +23,18 @@ export default function Section({ section: propsSection }: SectionProps) {
       </div>
     );
   }
+
+  // Функція для прокрутки вліво/вправо
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo = direction === 'left' 
+        ? scrollLeft - clientWidth 
+        : scrollLeft + clientWidth;
+      
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="container my-5">
@@ -38,24 +51,46 @@ export default function Section({ section: propsSection }: SectionProps) {
         </nav>
       )}
 
-      <div className="d-flex justify-content-between align-items-center mb-5 border-bottom pb-3">
-        <h2 className="h3 fw-normal text-uppercase mb-0">{currentSection.title}</h2>
+      <div className="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
+        <h2 className="h4 fw-normal text-uppercase mb-0">{currentSection.title}</h2>
         
         {slug ? (
           <span className="text-muted small">{currentSection.items.length} товарів</span>
         ) : (
           <div className="d-flex gap-3">
-            <i className="bi bi-chevron-left text-muted" style={{ cursor: 'pointer' }}></i>
-            <i className="bi bi-chevron-right" style={{ cursor: 'pointer' }}></i>
+            <i 
+              className="bi bi-chevron-left" 
+              style={{ cursor: 'pointer', fontSize: '1.2rem' }}
+              onClick={() => scroll('left')}
+            ></i>
+            <i 
+              className="bi bi-chevron-right" 
+              style={{ cursor: 'pointer', fontSize: '1.2rem' }}
+              onClick={() => scroll('right')}
+            ></i>
           </div>
         )}
       </div>
 
-      <div className="row row-cols-2 row-cols-md-4 g-4">
-        {currentSection.items.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {/* Якщо це головна сторінка (немає slug), використовуємо слайдер */}
+      {!slug ? (
+        <div className="product-slider-wrapper">
+          <div className="product-slider-container" ref={scrollRef}>
+            {currentSection.items.map(product => (
+              <div key={product.id} className="product-slider-item">
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        /* Якщо ми на сторінці конкретної категорії, показуємо звичайну сітку */
+        <div className="row row-cols-2 row-cols-md-4 g-4">
+          {currentSection.items.map(product => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
