@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+💄 Makeup Clone Project
+Це сучасний e-commerce веб-додаток для продажу косметики та парфумерії, натхненний дизайном та функціоналом популярних б’юті-платформ. Проєкт побудований на React із використанням TypeScript для забезпечення надійності та масштабованості.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+🚀 Основні можливості
+Каталог товарів: Динамічне завантаження товарів за категоріями через систему SectionDao.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Інтерактивний кошик: Повний цикл роботи з кошиком — додавання, видалення, зміна кількості та розрахунок вартості в реальному часі.
 
-## React Compiler
+Система авторизації: Реалізовано функціонал входу та реєстрації користувачів.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Глобальні UI-компоненти:
 
-## Expanding the ESLint configuration
+Модальна система: Єдине вікно підтвердження для критичних дій (оформлення замовлення, очищення кошика).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Toast-повідомлення: Черга миттєвих сповіщень про події (наприклад, "Товар додано").
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Preloader: Фірмова анімація завантаження при старті додатка.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Адаптивний дизайн: Використання Bootstrap 5 у поєднанні з кастомними стилями для забезпечення ідеального вигляду на будь-яких пристроях.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🛠 Технологічний стек
+Frontend: React (Hooks, Context API), TypeScript.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Routing: React Router DOM.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+UI/UX: Bootstrap 5, Lucide Icons / Bootstrap Icons.
+
+Build Tool: Vite.
+
+
+📂 Опис архітектури проєкту
+Проєкт реалізовано з використанням модульної архітектури (FSD-lite), що забезпечує чітке розділення відповідальності між шарами додатка:
+
+Entities: Ізольовані бізнес-сутності (User, Product) з власними моделями та логікою.
+
+Features: Функціональні блоки (Кошик, Авторизація, Модальні вікна), що реалізують конкретні сценарії користувача.
+
+Pages: Композиційні компоненти для рендерингу цілісних екранів.
+
+Для управління даними впроваджено патерн DAO (Data Access Object), який абстрагує логіку роботи з джерелами даних (localStorage/API) від компонентів інтерфейсу. Глобальний стан реалізовано через React Context API
+
+
+📸 Скріншоти
+<img width="1440" height="8<img width="1440" height="812" alt="Знімок екрана 2026-01-08 о 22 56 38" src="https://github.com/user-attachments/assets/513b1a85-61e9-48bf-8712-49ebcc6b48cf" />
+<img width="1440" height="809" alt="Знімок екрана 2026-01-08 о 22 56 18" src="https://github.com/user-attachments/assets/b8942cf2-ea0e-49ff-a587-e9ce3e6357db" />
+<img width="1440" height="812" alt="Знімок екрана 2026-01-08 о 22 56 08" src="https://github.com/user-attachments/assets/5172837b-eb81-4833-8ce7-6518948d6e68" />
+<img width="1437" height="815" alt="Знімок екрана 2026-01-08 о 22 55 57" src="https://github.com/user-attachments/assets/bfbb30a6-00c6-4809-a2b2-38d80f52dfd2" />
+<img width="1440" height="811" alt="Знімок екрана 2026-01-08 о 22 55 50" src="https://github.com/user-attachments/assets/63fc6f34-eccf-48b8-a371-904834f9e63c" />
+<img width="1440" height="812" alt="Знімок екрана 2026-01-08 о 22 55 30" src="https://github.com/user-attachments/assets/c3706a70-10eb-448c-9930-02529572d0fd" />
+<img width="1434" height="808" alt="Знімок екрана 2026-01-08 о 22 55 23" src="https://github.com/user-attachments/assets/03096015-6e0c-4a32-b13f-2bcf479b6c57" />
+<img width="1437" height="809" alt="Знімок екрана 2026-01-08 о 22 55 07" src="https://github.com/user-attachments/assets/ffd3451e-61b1-40a1-86eb-3b19257eba20" />
+<img width="1436" height="814" alt="Знімок екрана 2026-01-08 о 22 54 57" src="https://github.com/user-attachments/assets/5de19266-b380-4b88-aa36-e7bc90e3978d" />
+<img width="1434" height="800" alt="Знімок екрана 2026-01-08 о 22 53 51" src="https://github.com/user-attachments/assets/065f4648-d3c1-4fc7-acff-e192ffb27cc2" />
+12" alt="Знімок екрана 2026-01-08 о 22 52 20" src="https://github.com/user-attachments/assets/2fa65481-eaf4-46ff-8e9e-4cbc9219b3eb" />
+<img width="1440" height="811" alt="Знімок екрана 2026-01-08 о 22 52 59" src="https://github.com/user-attachments/assets/21756a1b-9e16-4f81-b36c-01e3227b90c2" />
+
+
+Дякую, що переглянули цей проєкт! Якщо у вас є питання або пропозиції, буду рада обговорити.
