@@ -40,7 +40,7 @@
   padding: 30px;
   width: 90%;
   max-width: 500px;
-  border-radius: 0; /* Гострі кути */
+  border-radius: 0; 
 }
 
 .modal-header-custom {

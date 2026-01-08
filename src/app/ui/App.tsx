@@ -6,15 +6,28 @@ import Section from "../../pages/section/Section"
 import Product from "../../pages/product/Product"
 import Auth from "../../pages/auth/Auth"
 import Cart from "../../pages/cart/Cart"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AppContext, AppProvider } from "../../features/app_context/AppContext"
 import Register from "../../pages/auth/Register"
 import GlobalModal from "../../features/app_context/GlobalModal"
 import ThankYou from "../../pages/thankyou/ThankYou"
+import Preloader from "../../features/Preloader/Preloader"
 
-// Внутрішній компонент, щоб мати доступ до useContext
 function AppContent() {
   const { toastQueue } = useContext(AppContext);
+    const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Preloader />;
+  }
 
   return (
     <>
@@ -36,7 +49,7 @@ function AppContent() {
       
       <GlobalModal />
 
-      {/* Рендеринг черги повідомлень */}
+
       <div className="toaster" style={{
         position: 'fixed',
         bottom: '20px',

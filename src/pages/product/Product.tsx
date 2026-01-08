@@ -1,6 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
 import { SectionDao } from '../../entities/section/api/SectionDao';
-// Імпортуємо ваші фірмові компоненти
 import SiteButton from '../../features/buttons/SiteButton';
 import { ButtonTypes } from '../../features/buttons/types/ButtonTypes';
 import "./ui/product.css";
@@ -23,10 +22,9 @@ export default function Product() {
   }
 
 const { addToCart } = useContext(AppContext);
-// ...
+
 const handleAddToCart = () => {
     addToCart(product);
-    // Тут можна викликати toast "Додано в кошик!"
 };
 
   return (
@@ -65,7 +63,6 @@ const handleAddToCart = () => {
             )}
           </div>
 
-          {/* Ваша фірмова кнопка */}
        <div className="full-width-btn-wrapper mb-4">
     <SiteButton 
       buttonType={ButtonTypes.Black} 

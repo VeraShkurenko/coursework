@@ -11,7 +11,7 @@ interface SectionProps {
 
 export default function Section({ section: propsSection }: SectionProps) {
   const { slug } = useParams<{ slug: string }>();
-  const scrollRef = useRef<HTMLDivElement>(null); // Реф для контейнера зі списком
+  const scrollRef = useRef<HTMLDivElement>(null); 
   
   const currentSection = propsSection || (slug ? SectionDao.getSectionById(slug) : undefined);
 
@@ -24,7 +24,6 @@ export default function Section({ section: propsSection }: SectionProps) {
     );
   }
 
-  // Функція для прокрутки вліво/вправо
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
@@ -72,7 +71,6 @@ export default function Section({ section: propsSection }: SectionProps) {
         )}
       </div>
 
-      {/* Якщо це головна сторінка (немає slug), використовуємо слайдер */}
       {!slug ? (
         <div className="product-slider-wrapper">
           <div className="product-slider-container" ref={scrollRef}>
@@ -84,7 +82,7 @@ export default function Section({ section: propsSection }: SectionProps) {
           </div>
         </div>
       ) : (
-        /* Якщо ми на сторінці конкретної категорії, показуємо звичайну сітку */
+
         <div className="row row-cols-2 row-cols-md-4 g-4">
           {currentSection.items.map(product => (
             <ProductCard key={product.id} product={product} />

@@ -9,7 +9,6 @@ export default function Register() {
     const { register, showToast } = useContext(AppContext);
     const navigate = useNavigate();
     
-    // Стан для полів форми (додаємо телефон та місто для повноти профілю)
     const [formData, setFormData] = useState({ 
         name: '', 
         email: '', 
@@ -19,16 +18,13 @@ export default function Register() {
     });
 
     const handleRegister = () => {
-        // Проста валідація
         if (!formData.name || !formData.email || !formData.password) {
             showToast({ message: "Будь ласка, заповніть обов'язкові поля (Ім'я, Email, Пароль)", timeout: 3000 });
             return;
         }
 
-        // Реєструємо користувача (id додасться в AppContext)
         register(formData as UserType); 
-        
-        // Після реєстрації відправляємо на сторінку входу
+
         navigate('/auth');
     };
 

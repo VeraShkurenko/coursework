@@ -8,7 +8,7 @@ export default function Auth() {
     const { user, setUser, login, showToast } = useContext(AppContext);
     const navigate = useNavigate();
     
-    // Стан для полів форми
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -18,12 +18,10 @@ export default function Auth() {
             return;
         }
 
-        // Викликаємо функцію login з нашого контексту
+
         const success = login(email, password);
         
         if (success) {
-            // Якщо логін успішний, можна перенаправити на головну
-            // або залишити в кабінеті.
             navigate("/home"); 
         }
     };
@@ -33,7 +31,6 @@ export default function Auth() {
         showToast({ message: "Ви вийшли з акаунта", timeout: 2000 });
     };
 
-    // 1. Екран профілю (якщо користувач увійшов)
     if (user) {
         return (
             <div className="container my-5" style={{ maxWidth: "600px" }}>
@@ -69,7 +66,6 @@ export default function Auth() {
         );
     }
 
-    // 2. Екран авторизації (вхід)
     return (
         <div className="container my-5" style={{ maxWidth: "450px" }}>
             <div className="text-center mb-5">

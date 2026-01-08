@@ -4,7 +4,7 @@ export interface UserType {
   id: number;
   email: string;
   name: string;
-  password?: string; // Обов'язково додайте це для авторизації
-  phone?: string;    // Додаємо поле для телефону
-  city?: string;     // Додаємо поле для міста
+  password?: string; 
+  phone?: string;   
+  city?: string;   
 }

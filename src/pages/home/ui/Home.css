@@ -1,9 +1,8 @@
-/* Центрування та шрифти */
 h2 {
     letter-spacing: 1px;
 }
 
-/* Ефект при наведенні на картку */
+
 .product-card {
     cursor: pointer;
 }
@@ -16,7 +15,6 @@ h2 {
     transition: transform 0.4s ease;
 }
 
-/* Колір стрілок та посилань */
 .btn-link {
     text-decoration: none;
     transition: opacity 0.2s;
@@ -26,7 +24,6 @@ h2 {
     opacity: 0.7;
 }
 
-/* Обрізка тексту, якщо назва занадто довга */
 .fw-semibold {
     display: -webkit-box;
     -webkit-line-clamp: 2;

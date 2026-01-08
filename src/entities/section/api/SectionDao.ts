@@ -11,6 +11,10 @@ export const SectionDao = {
           { id: 2, title: 'Nina Ricci Nina', type: 'Туалетна вода', price: '1714 ₴', img: '/img/parfume2.jpg', label: 'DEAL' },
           { id: 3, title: 'Jean Paul Gaultier', type: 'Парфумована вода', price: '3556 ₴', oldPrice: '5048 ₴', img: '/img/parfume3.jpg', label: 'SALE' },
           { id: 4, title: 'Paco Rabanne Fame', type: 'Парфумована вода', price: '2899 ₴', img: '/img/parfume4.jpg', label: 'DEAL' },
+          { id: 103, title: 'Сироватка для обличчя зволожувальна', type: 'Face Cream', price: '350 ₴', img: '/img/face5.jpg', label: 'DEAL' },
+          { id: 104, title: 'Крем для обличчя зволожувальний', type: 'Face Cream', price: '350 ₴', img: '/img/face6.jpg', label: 'DEAL' },
+          { id: 105, title: 'Зубна паста "Відновлення та захист"', type: 'Зубна паста', price: '120 ₴', img: '/img/health5.jpg', label: 'NEW' },
+          { id: 106, title: 'Зубна паста без фтору', type: 'Зубна паста', price: '120 ₴', img: '/img/health6.jpg', label: 'NEW' },
         ],
       },
       {
@@ -27,10 +31,12 @@ export const SectionDao = {
         id: "parfumes",
         title: 'Парфумерія',
         items: [
-          { id: 9, title: 'Rababne 1 Million', type: 'Туалетна вода', price: '2205 ₴', img: '/img/parfume6.jpg', label: 'DEAL' },
-          { id: 10, title: 'Nina Ricci Nina', type: 'Туалетна вода', price: '1714 ₴', img: '/img/parfume2.jpg', label: 'DEAL' },
-          { id: 11, title: 'Jean Paul Gaultier', type: 'Парфумована вода', price: '3556 ₴', oldPrice: '5048 ₴', img: '/img/parfume7.jpg', label: 'SALE' },
-          { id: 12, title: 'Paco Rabanne Fame', type: 'Парфумована вода', price: '2899 ₴', img: '/img/parfume8.jpg', label: 'DEAL' },
+          { id: 9, title: 'Rababne 1 Million Classic', type: 'Туалетна вода', price: '2205 ₴', img: '/img/parfume6.jpg', label: 'DEAL' },
+          { id: 10, title: 'Nina Ricci Special', type: 'Туалетна вода', price: '1714 ₴', img: '/img/parfume2.jpg', label: 'DEAL' },
+          { id: 11, title: 'Jean Paul Gaultier Luxe', type: 'Парфумована вода', price: '3556 ₴', oldPrice: '5048 ₴', img: '/img/parfume7.jpg', label: 'SALE' },
+          { id: 12, title: 'Paco Rabanne Fame Night', type: 'Парфумована вода', price: '2899 ₴', img: '/img/parfume8.jpg', label: 'DEAL' },
+          { id: 201, title: 'Carolina Hererra Pink', type: 'Парфумована вода', price: '1556 ₴', oldPrice: '1648 ₴', img: '/img/parfume10.jpg', label: 'SALE' },
+          { id: 202, title: 'Rabanne Fame Gold', type: 'Парфумована вода', price: '3899 ₴', img: '/img/parfume11.jpg', label: 'DEAL' },
         ],
       },
       {
@@ -51,6 +57,8 @@ export const SectionDao = {
           { id: 18, title: 'CeraVe Moisturising Lotion', type: 'Зволожувальне молочко', price: '280 ₴', img: '/img/face2.jpg', label: 'DEAL' },
           { id: 19, title: 'Too Cool For School Pumpkin', type: 'Нічна маска', price: '20 ₴', img: '/img/face3.jpg', label: 'DEAL' },
           { id: 20, title: 'Missha BB Cream', type: 'Стійкий тональний флюїд', price: '1987 ₴', img: '/img/face4.jpg', label: 'DEAL' },
+          { id: 301, title: 'Сироватка для обличчя зволожувальна (Макдадамія)', type: 'Face Cream', price: '350 ₴', img: '/img/face5.jpg', label: 'DEAL' },
+          { id: 302, title: 'Крем для обличчя зволожувальний (Гіалурон)', type: 'Face Cream', price: '350 ₴', img: '/img/face6.jpg', label: 'NEW' },
         ],
       },
       {
@@ -81,6 +89,8 @@ export const SectionDao = {
           { id: 30, title: 'Solgar Biotin 5000', type: 'Добавка для волосся', price: '620 ₴', img: '/img/health2.jpg', label: 'HIT' },
           { id: 31, title: 'Now Foods Vitamin D-3', type: 'Харчова добавка', price: '350 ₴', img: '/img/health3.jpg', label: 'DEAL' },
           { id: 32, title: 'Perla Helsa Collagen', type: 'Морський колаген', price: '1100 ₴', img: '/img/health4.jpg', label: 'NEW' },
+          { id: 401, title: 'Зубна паста "Відновлення та захист. Відбілювальна"', type: 'Зубна паста', price: '120 ₴', img: '/img/health5.jpg', label: 'NEW' },
+          { id: 402, title: 'Зубна паста без фтору"', type: 'Зубна паста', price: '120 ₴', img: '/img/health6.jpg', label: 'NEW' },
         ],
       },
       {
@@ -117,31 +127,31 @@ export const SectionDao = {
     ];
   },
 
-  // ГЕНЕРУЄМО СЕКЦІЮ АКЦІЙ
   getSalesSection(): SectionType {
-    const allProducts = SectionDao.getHomeSections().flatMap(section => section.items);
-    // Фільтруємо всі товари, де є oldPrice
-    const saleItems = allProducts.filter(p => p.oldPrice && p.oldPrice.length > 0);
+    const allProducts = this.getHomeSections().flatMap(section => section.items);
+    // Використовуємо Set для видалення дублікатів за ID, якщо один товар у кількох секціях
+    const uniqueSales = Array.from(new Map(
+        allProducts
+          .filter(p => p.oldPrice && p.oldPrice.length > 0)
+          .map(p => [p.id, p])
+    ).values());
 
     return {
       id: "sales",
       title: "Акційні пропозиції",
-      items: saleItems
+      items: uniqueSales
     };
   },
 
-  // ЦЕЙ МЕТОД ВИКОРИСТОВУЄ СТОРІНКА SECTION.TSX
   getSectionById(id: string): SectionType | undefined {
-    // Якщо прийшов запит на 'sales', повертаємо згенеровану секцію
     if (id === "sales") {
-      return SectionDao.getSalesSection();
+      return this.getSalesSection();
     }
-    // Інакше шукаємо серед звичайних категорій
-    return SectionDao.getHomeSections().find(section => section.id === id);
+    return this.getHomeSections().find(section => section.id === id);
   },
 
   getProductById(id: number | string) {
-    const allProducts = SectionDao.getHomeSections().flatMap(section => section.items);
+    const allProducts = this.getHomeSections().flatMap(section => section.items);
     return allProducts.find(product => product.id.toString() === id.toString());
   }
 };

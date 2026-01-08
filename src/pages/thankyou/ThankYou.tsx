@@ -9,7 +9,6 @@ export default function ThankYou() {
     const [searchParams] = useSearchParams();
     const orderNumber = searchParams.get("order") || Math.floor(Math.random() * 100000);
     
-    // Беремо секцію "Акції" або будь-яку іншу для рекомендацій
     const recommendations = SectionDao.getHomeSections()[0]; 
 
     return (
@@ -33,7 +32,6 @@ export default function ThankYou() {
 
             <hr className="my-5" />
 
-            {/* Блок рекомендацій, щоб користувач не йшов з сайту */}
             <div className="text-start">
                 <h3 className="fw-bold text-uppercase mb-4 text-center">Можливо, вас також зацікавить</h3>
                 {recommendations && (

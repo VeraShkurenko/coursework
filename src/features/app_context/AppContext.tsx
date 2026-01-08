@@ -7,7 +7,7 @@ export interface CartItem extends ProductType {
   quantity: number;
 }
 
-// Інтерфейс для налаштування модального вікна
+
 export interface ModalConfig {
   title: string;
   message: string;
@@ -17,29 +17,28 @@ export interface ModalConfig {
 }
 
 interface AppContextType {
-  // Авторизація та Користувачі
   user: UserType | null;
   setUser: (user: UserType | null) => void;
   users: UserType[];
   register: (userData: UserType) => void;
   login: (email: string, password: string) => boolean;
   
-  // Обране
+
   favorites: number[]; 
   toggleFavorite: (id: number) => void;
   
-  // Кошик
+
   cart: CartItem[];
   addToCart: (product: ProductType) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, delta: number) => void;
   clearCart: () => void;
   
-  // Повідомлення (Toasts)
+
   toastQueue: ToastData[]; 
   showToast: (data: ToastData) => void;
 
-  // Модальні вікна (Modals)
+
   modal: ModalConfig | null;
   showModal: (config: ModalConfig) => void;
   hideModal: () => void;

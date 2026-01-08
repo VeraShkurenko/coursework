@@ -2,7 +2,7 @@ import SiteButton from "../buttons/SiteButton";
 import { ButtonTypes } from "../buttons/types/ButtonTypes";
 import Label from "../label/Label";
 import { LabelTypes } from '../label/types/LabelTypes';
-import { Outlet, Link } from "react-router-dom"; // Об'єднав імпорти роутера
+import { Outlet, Link } from "react-router-dom"; 
 import { useContext } from "react";
 import { AppContext } from "../../features/app_context/AppContext";
 
@@ -25,10 +25,8 @@ export default function Layout() {
   return (
     <>
       <header className="sticky-top bg-white">
-        {/* Верхня частина хедера */}
         <nav className="navbar navbar-expand-lg py-3">
           <div className="container d-flex align-items-center justify-content-between">
-            {/* Пошук */}
             <form className="d-flex w-25" role="search">
               <div className="input-group">
                 <input className="form-control border-end-0 rounded-0" type="search" placeholder="Пошук" aria-label="Search"/>

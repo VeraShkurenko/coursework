@@ -31,13 +31,11 @@ const handleCheckout = () => {
     onConfirm: () => {
       const orderId = Math.floor(Math.random() * 90000) + 10000;
       clearCart();
-      // Переходимо на сторінку подяки з номером замовлення
       navigate(`/thank-you?order=${orderId}`);
     }
   });
 };
   
-  // Екран порожнього кошика
   if (cart.length === 0) {
     return (
       <div className="container my-5 text-center p-5">
@@ -71,7 +69,6 @@ const handleCheckout = () => {
                 <div className="d-flex align-items-center gap-4">
                   <span className="h5 mb-0 fw-bold">{item.price}</span>
                   
-                  {/* Фірмове управління кількістю */}
                   <div className="d-flex align-items-center border border-dark p-1">
                     <button 
                       className="btn btn-sm border-0 px-3 fw-bold" 
@@ -110,7 +107,6 @@ const handleCheckout = () => {
           </button>
         </div>
 
-        {/* Права частина з підсумком */}
         <div className="col-md-4">
           <div className="p-4 border border-dark rounded-0 bg-white">
             <h5 className="fw-bold text-uppercase mb-4" style={{ letterSpacing: '1px' }}>Підсумок</h5>

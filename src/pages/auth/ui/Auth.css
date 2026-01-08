@@ -1,8 +1,7 @@
-/* Робимо кнопку в картці товару на всю ширину */
 .full-width-btn-wrapper .site-button {
     width: 100% !important;
-    max-width: none !important; /* Прибираємо ліміт у 160px */
-    padding: 15px 0; /* Робимо її трохи вищою та соліднішою */
+    max-width: none !important; 
+    padding: 15px 0;
     font-size: 1.1rem;
     display: flex;
     justify-content: center;

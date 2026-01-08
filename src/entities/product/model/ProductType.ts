@@ -3,8 +3,7 @@ export type ProductType = {
   title: string;
   type: string;
   price: string;
-  oldPrice?: string; // Переконайтеся, що це поле також є
+  oldPrice?: string; 
   img: string;
-  // Додаємо "SALE" у список дозволених значень
   label?: "DEAL" | "HIT" | "NEW" | "SALE"; 
 };

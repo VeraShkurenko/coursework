@@ -13,19 +13,19 @@
   width: fit-content;
 }
 
-/* Чёрный DEAL */
+
 .label-black {
   background-color: #1f1f1f;
   color: #ffffff;
 }
 
-/* Фиолетовая скидка */
+
 .label-purple {
   background-color: #6c3cff;
   color: #ffffff;
 }
 
-/* Красная скидка */
+
 .label-red {
   background-color: #ff3c3c;
   color: #ffffff;
