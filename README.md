@@ -53,7 +53,7 @@ Pages: Композиційні компоненти для рендерингу
 <img width="1437" height="809" alt="Знімок екрана 2026-01-08 о 22 55 07" src="https://github.com/user-attachments/assets/ffd3451e-61b1-40a1-86eb-3b19257eba20" />
 <img width="1436" height="814" alt="Знімок екрана 2026-01-08 о 22 54 57" src="https://github.com/user-attachments/assets/5de19266-b380-4b88-aa36-e7bc90e3978d" />
 <img width="1434" height="800" alt="Знімок екрана 2026-01-08 о 22 53 51" src="https://github.com/user-attachments/assets/065f4648-d3c1-4fc7-acff-e192ffb27cc2" />
-12" alt="Знімок екрана 2026-01-08 о 22 52 20" src="https://github.com/user-attachments/assets/2fa65481-eaf4-46ff-8e9e-4cbc9219b3eb" />
+<img width="1434" height="800" alt="Знімок екрана 2026-01-08 о 22 52 20" src="https://github.com/user-attachments/assets/2fa65481-eaf4-46ff-8e9e-4cbc9219b3eb" />
 <img width="1440" height="811" alt="Знімок екрана 2026-01-08 о 22 52 59" src="https://github.com/user-attachments/assets/21756a1b-9e16-4f81-b36c-01e3227b90c2" />
 
 
