@@ -3,7 +3,7 @@ import { SectionDao } from '../../entities/section/api/SectionDao';
 import ProductCard from '../home/components/ProductCard';
 import type { SectionType } from '../../entities/section/model/SectionType';
 import { useRef } from 'react';
-import './ui/section.css';
+import './ui/Section.css';
 
 interface SectionProps {
   section?: SectionType;
