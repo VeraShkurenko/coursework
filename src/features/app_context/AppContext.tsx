@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useState, useEffect, type ReactNode } from 'react';
 import type { UserType } from '../../entities/user/model/UserType';
 import type { ProductType } from '../../entities/product/model/ProductType';
 import type ToastData from './ToastData';
