@@ -1,6 +1,6 @@
 import { SectionDao } from "../../entities/section/api/SectionDao";
 import Section from "../section/Section";
-import './ui/home.css';
+import './ui/Home.css';
 
 export default function Home() {
   
