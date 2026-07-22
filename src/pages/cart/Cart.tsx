@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { AppContext } from '../../features/app_context/AppContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import SiteButton from '../../features/buttons/SiteButton';
 import { ButtonTypes } from '../../features/buttons/types/ButtonTypes';
 

@@ -1,6 +1,4 @@
 import { SectionDao } from "../../entities/section/api/SectionDao";
-import SiteButton from "../../features/buttons/SiteButton";
-import { ButtonTypes } from "../../features/buttons/types/ButtonTypes";
 import Section from "../section/Section";
 import './ui/home.css';
 

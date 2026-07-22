@@ -1,7 +1,3 @@
-import SiteButton from "../buttons/SiteButton";
-import { ButtonTypes } from "../buttons/types/ButtonTypes";
-import Label from "../label/Label";
-import { LabelTypes } from '../label/types/LabelTypes';
 import { Outlet, Link } from "react-router-dom"; 
 import { useContext } from "react";
 import { AppContext } from "../../features/app_context/AppContext";
