@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Layout from "../../features/layout/Layout"
 import Privacy from "../../pages/privacy/Privacy"
 import Home from "../../pages/home/Home"
@@ -31,7 +31,7 @@ function AppContent() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />} > 
             <Route index element={<Home />} />
@@ -45,7 +45,7 @@ function AppContent() {
             <Route path="thank-you" element={<ThankYou />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       
       <GlobalModal />
 
